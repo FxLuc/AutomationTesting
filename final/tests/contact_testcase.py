@@ -38,6 +38,29 @@ class TestContactPage(unittest.TestCase):
         )
 
 
+    def testcase_TC02(self):
+        """
+        TC02: Tests "Contact me" form with populates the fields, submits the forms and verifies the success message.
+        """
+
+        # enter valid data for the form fields
+        self.CONTACT_PAGE.fill_form_by_valid_data()
+
+        # Submitting the form
+        self.CONTACT_PAGE.click_submit_form_button()
+
+        # Verifies that success message is displayed
+        self.CONTACT_PAGE.success_message_is_displayed(self)
+
+        # Take a screenshot
+        self.ob.full_Screenshot(
+            self.driver,
+            save_path = self.SCREENSHOT_FOLDER,
+            image_name='testcase_TC03.png'
+        )
+
+
+
     def tearDown(self):
         self.driver.quit()
 
