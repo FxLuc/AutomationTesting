@@ -1,0 +1,64 @@
+$ "C:/Program Files/Python39/python.exe" d:/Office/Testing/final/tests/contact_testcase.py
+d:\Office\Testing\final\tests\contact_testcase.py:17: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+  self.driver = webdriver.Chrome(
+.F.F....
+======================================================================
+FAIL: testcase_TC02 (__main__.TestContactPage)
+TC02: Tests "Contact me" form with populates the fields, submits the forms and verifies the success message.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Office\Testing\final\pages\contact_page.py", line 100, in success_message_is_displayed
+    SUCCESS_MESSAGE = self.get_success_message()
+  File "D:\Office\Testing\final\pages\contact_page.py", line 52, in get_success_message
+    element = self.comfirmation_element.find_element(By.TAG_NAME, "p")
+selenium.common.exceptions.TimeoutException: Message: Timed out waiting for the element to appear.
+Stacktrace:
+Backtrace:
+        Ordinal0 [0x00E2B8F3+2406643]
+        Ordinal0 [0x00DBAF31+1945393]
+        Ordinal0 [0x00CAC748+837448]
+        Ordinal0 [0x00CD92E0+1020640]
+        Ordinal0 [0x00CD957B+1021307]
+        Ordinal0 [0x00D06372+1205106]
+        Ordinal0 [0x00CF42C4+1131204]
+        Ordinal0 [0x00D04682+1197698]
+        Ordinal0 [0x00CF4096+1130646]
+        Ordinal0 [0x00CCE636+976438]
+        Ordinal0 [0x00CCF546+980294]
+        GetHandleVerifier [0x01099612+2498066]
+        GetHandleVerifier [0x0108C920+2445600]
+        GetHandleVerifier [0x00EC4F2A+579370]
+        GetHandleVerifier [0x00EC3D36+574774]
+        Ordinal0 [0x00DC1C0B+1973259]
+        Ordinal0 [0x00DC6688+1992328]
+        Ordinal0 [0x00DC6775+1992565]
+        Ordinal0 [0x00DCF8D1+2029777]
+        BaseThreadInitThunk [0x76F7FA29+25]
+        RtlGetAppContainerNamedObjectPath [0x77787A7E+286]
+        RtlGetAppContainerNamedObjectPath [0x77787A4E+238]
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\Office\Testing\final\tests\contact_testcase.py", line 53, in testcase_TC02
+    self.CONTACT_PAGE.success_message_is_displayed(self)
+  File "D:\Office\Testing\final\pages\contact_page.py", line 103, in success_message_is_displayed
+    assert False, self.SUCCESS_MESSAGE_STILL_DISPLAYED
+AssertionError: The success message still displayed.
+
+======================================================================
+FAIL: testcase_TC04 (__main__.TestContactPage)
+TC04: Tests "Contact me" form with blank name field, submit the form and verify the success message is not displayed.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "d:\Office\Testing\final\tests\contact_testcase.py", line 102, in testcase_TC04
+    self.CONTACT_PAGE.success_message_is_not_displayed(self)
+  File "D:\Office\Testing\final\pages\contact_page.py", line 91, in success_message_is_not_displayed
+    context.assertNotEqual(self.CONFIRM_MESSAGE, SUCCESS_MESSAGE, self.SUCCESS_MESSAGE_STILL_DISPLAYED)
+AssertionError: 'Thanks for contacting us! We will be in touch with you shortly.' == 'Thanks for contacting us! We will be in touch with you shortly.' : The success message still displayed.
+
+----------------------------------------------------------------------
+Ran 8 tests in 163.003s
+
+FAILED (failures=2)
