@@ -60,6 +60,30 @@ class TestContactPage(unittest.TestCase):
         )
 
 
+    def testcase_TC03(self):
+        """
+        TC03: Tests "Contact me" form without name field, submit the form and verify the success message is not displayed.
+        """
+        # enter valid data for the form fields
+        self.CONTACT_PAGE.fill_form_by_valid_data()
+
+        # Specified the email field
+        self.CONTACT_PAGE.name_input = ''
+
+        # Submitting the form
+        self.CONTACT_PAGE.click_submit_form_button()
+
+        # Verifies that success message is not displayed
+        self.CONTACT_PAGE.success_message_is_not_displayed(self)
+
+        # Take a screenshot
+        self.ob.full_Screenshot(
+            self.driver,
+            save_path = self.SCREENSHOT_FOLDER,
+            image_name='testcase_TC03.png'
+        )
+
+
 
     def tearDown(self):
         self.driver.quit()
