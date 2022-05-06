@@ -56,7 +56,7 @@ class TestContactPage(unittest.TestCase):
         self.ob.full_Screenshot(
             self.driver,
             save_path = self.SCREENSHOT_FOLDER,
-            image_name='testcase_TC03.png'
+            image_name='testcase_TC02.png'
         )
 
 
@@ -83,6 +83,130 @@ class TestContactPage(unittest.TestCase):
             image_name='testcase_TC03.png'
         )
 
+
+    def testcase_TC04(self):
+        """
+        TC04: Tests "Contact me" form with blank name field, submit the form and verify the success message is not displayed.
+        """
+
+        # enter valid data for the form fields
+        self.CONTACT_PAGE.fill_form_by_valid_data()
+
+        # Specified the email field
+        self.CONTACT_PAGE.name_input = ' '
+
+        # Submitting the form
+        self.CONTACT_PAGE.click_submit_form_button()
+
+        # Verifies that success message is not displayed
+        self.CONTACT_PAGE.success_message_is_not_displayed(self)
+
+        # Take a screenshot
+        self.ob.full_Screenshot(
+            self.driver,
+            save_path = self.SCREENSHOT_FOLDER,
+            image_name='testcase_TC04.png'
+        )
+
+
+    def testcase_TC05(self):
+        """
+        TC05: Tests "Contact me" form without name field, submit the form and verify that error message is displayed.
+        """
+
+        # enter valid data for the form fields
+        self.CONTACT_PAGE.fill_form_by_valid_data()
+
+        # Specified the email field
+        self.CONTACT_PAGE.name_input = ''
+
+        # Submitting the form
+        self.CONTACT_PAGE.click_submit_form_button()
+
+        # Verifies that name field error message is displayed
+        self.CONTACT_PAGE.name_field_error_is_displayed(self)
+
+        # Take a screenshot
+        self.ob.full_Screenshot(
+            self.driver,
+            save_path = self.SCREENSHOT_FOLDER,
+            image_name='testcase_TC05.png'
+        )
+        
+
+    def testcase_TC06(self):
+        """
+        TC06: Tests "Contact me" form with blank name field, submit the form and verify that error message is displayed.
+        """
+
+        # enter valid data for the form fields
+        self.CONTACT_PAGE.fill_form_by_valid_data()
+
+        # Specified the email field
+        self.CONTACT_PAGE.email_input = ' '
+
+        # Submitting the form
+        self.CONTACT_PAGE.click_submit_form_button()
+
+        # Verifies that email field error message is displayed
+        self.CONTACT_PAGE.email_field_error_is_displayed(self)
+
+        # Take a screenshot
+        self.ob.full_Screenshot(
+            self.driver,
+            save_path = self.SCREENSHOT_FOLDER,
+            image_name='testcase_TC06.png'
+        )
+
+
+    def testcase_TC07(self):
+        """
+        TC07: Tests "Contact me" form with invalid email field, submit the form and verify that email flied error message is displayed.
+        """
+
+        # enter valid data for the form fields
+        self.CONTACT_PAGE.fill_form_by_valid_data()
+
+        # Specified the email field
+        self.CONTACT_PAGE.email_input = "john@whocom"
+
+        # Submitting the form
+        self.CONTACT_PAGE.click_submit_form_button()
+
+        # Verifies that email field invalid message is displayed
+        self.CONTACT_PAGE.email_field_invalid_is_displayed(self)
+
+        # Take a screenshot
+        self.ob.full_Screenshot(
+            self.driver,
+            save_path = self.SCREENSHOT_FOLDER,
+            image_name='testcase_TC07.png'
+        )
+
+
+    def testcase_TC08(self):
+        """
+        TC08: Tests "Contact me" form with invalid email field, submit the form and verify the success message is not displayed.
+        """
+
+        # enter valid data for the form fields
+        self.CONTACT_PAGE.fill_form_by_valid_data()
+
+        # Specified the email field
+        self.CONTACT_PAGE.email_input = "john@whocom"
+
+        # Submitting the form
+        self.CONTACT_PAGE.click_submit_form_button()
+
+        # Verifies that success message is not displayed
+        self.CONTACT_PAGE.success_message_is_not_displayed(self)
+
+        # Take a screenshot
+        self.ob.full_Screenshot(
+            self.driver,
+            save_path = self.SCREENSHOT_FOLDER,
+            image_name='testcase_TC08.png'
+        )
 
 
     def tearDown(self):
