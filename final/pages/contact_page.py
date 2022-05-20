@@ -27,12 +27,6 @@ class ContactPage(BasePage):
 
     comfirmation_element = ComfirmationElement()
 
-    def get_title(self):
-        """
-        Get the text appears in page title
-        """
-        return self.driver.title
-
     def fill_form_by_valid_data(self):
         """
         Enter valid data for the form fields

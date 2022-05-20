@@ -14,9 +14,9 @@ class BasePageFieldElement(object):
         Sets the text to the value supplied
         """
         driver = obj.driver
-        WebDriverWait(driver, TIMEOUT_MAX).until(lambda driver: driver.find_element(By.ID, self.locator), TIMEOUT_ERROR_MESSAGE)
-        driver.find_element(By.ID, self.locator).clear()
-        driver.find_element(By.ID, self.locator).send_keys(value)
+        WebDriverWait(driver, TIMEOUT_MAX).until(lambda driver: driver.find_element(By.ID, self.element_id), TIMEOUT_ERROR_MESSAGE)
+        driver.find_element(By.ID, self.element_id).clear()
+        driver.find_element(By.ID, self.element_id).send_keys(value)
 
 
     def __get__(self, obj, owner):
@@ -24,8 +24,7 @@ class BasePageFieldElement(object):
         Gets the text of the specified object
         """
         driver = obj.driver
-        WebDriverWait(driver, TIMEOUT_MAX).until(lambda driver: driver.find_element(By.ID, self.locator), TIMEOUT_ERROR_MESSAGE)
-        element = driver.find_element(By.ID, self.locator)
+        element = WebDriverWait(driver, TIMEOUT_MAX).until(lambda driver: driver.find_element(By.ID, self.element_id), TIMEOUT_ERROR_MESSAGE)
         return element.get_attribute("value")
 
 
@@ -36,12 +35,24 @@ class BasePageElement(object):
 
     def __get__(self, obj, owner):
         """
-        Gets the element of the specified locator
+        Gets the element of the specified element_id
         """
         driver = obj.driver
-        WebDriverWait(driver, TIMEOUT_MAX).until(lambda driver: driver.find_element(By.ID, self.locator), TIMEOUT_ERROR_MESSAGE)
-        element = driver.find_element(By.ID, self.locator)
+        element = WebDriverWait(driver, TIMEOUT_MAX).until(lambda driver: driver.find_element(By.ID, self.element_id), TIMEOUT_ERROR_MESSAGE)
         return element
+
+class BasePageElementByClass(object):
+    """
+    Base page class that is initialized on every page object class.
+    """
+
+    def __get__(self, obj, owner):
+        """
+        Gets the element of the specified element_id
+        """
+        driver = obj.driver
+        elements = WebDriverWait(driver, TIMEOUT_MAX).until(lambda driver: driver.find_elements(By.CLASS_NAME, self.element_class_name), TIMEOUT_ERROR_MESSAGE)
+        return elements
 
 
 class BasePage(object):
