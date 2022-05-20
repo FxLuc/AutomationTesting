@@ -36,29 +36,29 @@ class TestContactPage(unittest.TestCase):
         self.CONTACT_PAGE = contact_page.ContactPage(self.driver)
 
 
-    def testcase_TC01(self):
-        """
-        TC01: Tests the word "Contact" is in title
-        """
+    # def testcase_TC01(self):
+    #     """
+    #     TC01: Tests the word "Contact" is in title
+    #     """
 
-        # Checks if the word "Contact – Colibri Software" is in title
-        PAGE_TITLE = self.driver.title
-        self.assertEqual("Contact – Colibri Software", PAGE_TITLE, 'The "Contact" page title is not match')
+    #     # Checks if the word "Contact – Colibri Software" is in title
+    #     PAGE_TITLE = self.driver.title
+    #     self.assertEqual("Contact – Colibri Software", PAGE_TITLE, 'The "Contact" page title is not match')
 
 
-    def testcase_TC02(self):
-        """
-        TC02: Tests "Contact me" form with populates the fields, submits the forms and verifies the success message.
-        """
+    # def testcase_TC02(self):
+    #     """
+    #     TC02: Tests "Contact me" form with populates the fields, submits the forms and verifies the success message.
+    #     """
 
-        # enter valid data for the form fields
-        self.CONTACT_PAGE.fill_form_by_valid_data()
+    #     # enter valid data for the form fields
+    #     self.CONTACT_PAGE.fill_form_by_valid_data()
 
-        # Submitting the form
-        self.CONTACT_PAGE.click_submit_form_button()
+    #     # Submitting the form
+    #     self.CONTACT_PAGE.click_submit_form_button()
 
-        # Verifies that success message is displayed
-        self.CONTACT_PAGE.success_message_is_displayed(self)
+    #     # Verifies that success message is displayed
+    #     self.CONTACT_PAGE.success_message_is_displayed(self)
 
     def testcase_TC03(self):
         """
@@ -95,85 +95,85 @@ class TestContactPage(unittest.TestCase):
         self.CONTACT_PAGE.success_message_is_not_displayed(self)
 
 
-    def testcase_TC05(self):
-        """
-        TC05: Tests "Contact me" form without name field, submit the form and verify that ERROR message is displayed.
-        """
+    # def testcase_TC05(self):
+    #     """
+    #     TC05: Tests "Contact me" form without name field, submit the form and verify that ERROR message is displayed.
+    #     """
 
-        # enter valid data for the form fields
-        self.CONTACT_PAGE.fill_form_by_valid_data()
+    #     # enter valid data for the form fields
+    #     self.CONTACT_PAGE.fill_form_by_valid_data()
 
-        # Specified the email field
-        self.CONTACT_PAGE.name_input = ''
+    #     # Specified the email field
+    #     self.CONTACT_PAGE.name_input = ''
 
-        # Submitting the form
-        self.CONTACT_PAGE.click_submit_form_button()
+    #     # Submitting the form
+    #     self.CONTACT_PAGE.click_submit_form_button()
 
-        # Verifies that name field error message is displayed
-        self.CONTACT_PAGE.name_field_error_is_displayed(self)
-
-
-    def testcase_TC06(self):
-        """
-        TC06: Tests "Contact me" form with blank name field, submit the form and verify that ERROR message is displayed.
-        """
-
-        # enter valid data for the form fields
-        self.CONTACT_PAGE.fill_form_by_valid_data()
-
-        # Specified the email field
-        self.CONTACT_PAGE.email_input = ' '
-
-        # Submitting the form
-        self.CONTACT_PAGE.click_submit_form_button()
-
-        # Verifies that email field error message is displayed
-        self.CONTACT_PAGE.email_field_error_is_displayed(self)
+    #     # Verifies that name field error message is displayed
+    #     self.CONTACT_PAGE.name_field_error_is_displayed(self)
 
 
-    def testcase_TC07(self):
-        """
-        TC07: Tests "Contact me" form with invalid email field, submit the form and verify that email flied ERROR message is displayed.
-        """
+    # def testcase_TC06(self):
+    #     """
+    #     TC06: Tests "Contact me" form with blank name field, submit the form and verify that ERROR message is displayed.
+    #     """
 
-        # enter valid data for the form fields
-        self.CONTACT_PAGE.fill_form_by_valid_data()
+    #     # enter valid data for the form fields
+    #     self.CONTACT_PAGE.fill_form_by_valid_data()
 
-        # Specified the email field
-        self.CONTACT_PAGE.email_input = "john@whocom"
+    #     # Specified the email field
+    #     self.CONTACT_PAGE.email_input = ' '
 
-        # Submitting the form
-        self.CONTACT_PAGE.click_submit_form_button()
+    #     # Submitting the form
+    #     self.CONTACT_PAGE.click_submit_form_button()
 
-        # Verifies that email field invalid message is displayed
-        self.CONTACT_PAGE.email_field_invalid_is_displayed(self)
+    #     # Verifies that email field error message is displayed
+    #     self.CONTACT_PAGE.email_field_error_is_displayed(self)
 
 
-    def testcase_TC08(self):
-        """
-        TC08: Tests "Contact me" form with invalid email field, submit the form and verify the success message is not displayed.
-        """
+    # def testcase_TC07(self):
+    #     """
+    #     TC07: Tests "Contact me" form with invalid email field, submit the form and verify that email flied ERROR message is displayed.
+    #     """
 
-        # enter valid data for the form fields
-        self.CONTACT_PAGE.fill_form_by_valid_data()
+    #     # enter valid data for the form fields
+    #     self.CONTACT_PAGE.fill_form_by_valid_data()
 
-        # Specified the email field
-        self.CONTACT_PAGE.email_input = "john@whocom"
+    #     # Specified the email field
+    #     self.CONTACT_PAGE.email_input = "john@whocom"
 
-        # Submitting the form
-        self.CONTACT_PAGE.click_submit_form_button()
+    #     # Submitting the form
+    #     self.CONTACT_PAGE.click_submit_form_button()
 
-        # Verifies that success message is not displayed
-        self.CONTACT_PAGE.success_message_is_not_displayed(self)
+    #     # Verifies that email field invalid message is displayed
+    #     self.CONTACT_PAGE.email_field_invalid_is_displayed(self)
+
+
+    # def testcase_TC08(self):
+    #     """
+    #     TC08: Tests "Contact me" form with invalid email field, submit the form and verify the success message is not displayed.
+    #     """
+
+    #     # enter valid data for the form fields
+    #     self.CONTACT_PAGE.fill_form_by_valid_data()
+
+    #     # Specified the email field
+    #     self.CONTACT_PAGE.email_input = "john@whocom"
+
+    #     # Submitting the form
+    #     self.CONTACT_PAGE.click_submit_form_button()
+
+    #     # Verifies that success message is not displayed
+    #     self.CONTACT_PAGE.success_message_is_not_displayed(self)
 
 
     def tearDown(self):
         # Take a screenshot
-        self.ob.full_Screenshot(
-            self.driver,
-            save_path = self.SCREENSHOT_FOLDER,
-            image_name='testcase_TC'+ str(self.counter.counter) + '.png'
-        )
+        # self.ob.full_Screenshot(
+        #     self.driver,
+        #     save_path = self.SCREENSHOT_FOLDER,
+        #     image_name='testcase_TC'+ str(self.counter.counter) + '.png'
+        # )
         self.driver.quit()
 
 

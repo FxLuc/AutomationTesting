@@ -1,5 +1,8 @@
-from .base_page import BasePageElementByClass
+from .base_page import BasePageElementBySelector
 
 
-class PostCardElement(BasePageElementByClass):
-    element_class_name = "eael-grid-post-link"
+class PostCardElement(BasePageElementBySelector):
+    """
+    This class gets the search element by the xPATH
+    """
+    locator = "a[class='eael-grid-post-link']"

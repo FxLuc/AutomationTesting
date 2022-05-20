@@ -3,35 +3,35 @@ from .base_page import BasePageElement, BasePageFieldElement
 
 class NameElement(BasePageFieldElement):
     """
-    This class gets the search text from the specified ID
+    This class gets the search element by the xPATH
     """
-    # The ID for text box where name is entered
-    element_id = "wpforms-236-field_0"
+    locator = "//input[@id='wpforms-236-field_0']"
 
 
 class NameFeedbackElement(BasePageElement):
-    element_id = "wpforms-236-field_0-error"
+    locator = "//label[@id='wpforms-236-field_0-error']"
+
 
 
 class CompanyNameElement(BasePageFieldElement):
-    element_id = "wpforms-236-field_4"
+    locator = "//input[@id='wpforms-236-field_4']"
 
 
 class EmailElement(BasePageFieldElement):
-    element_id = "wpforms-236-field_1"
+    locator = "//input[@id='wpforms-236-field_1']"
 
 
 class EmailFeedbackElement(BasePageElement):
-    element_id = "wpforms-236-field_1-error"
+    locator = "//label[@id='wpforms-236-field_1-error']"
 
 
 class AdditionalInfoElement(BasePageFieldElement):
-    element_id = "wpforms-236-field_2"
+    locator = "//textarea[@id='wpforms-236-field_2']"
 
 
 class SubmitElement(BasePageElement):
-    element_id = "wpforms-submit-236"
+    locator = "//button[@id='wpforms-submit-236']"
 
 
 class ComfirmationElement(BasePageElement):
-    element_id = "wpforms-confirmation-236"
+    locator = "//div[@id='wpforms-confirmation-236']"
